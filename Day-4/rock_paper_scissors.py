@@ -34,6 +34,8 @@ print(choices[x])
 
 comp_gen = random.randint(0, 2)
 
+print("Computer chooses")
+
 print(choices[comp_gen])
 
 if x == 0:
