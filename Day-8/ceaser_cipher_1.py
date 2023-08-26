@@ -1,43 +1,42 @@
+import art
+
 alphabet =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
               'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-# Function 'encrypt' that takes text input and shifts it
+# Function 'encrypt' or 'decrypt' a message that takes text input and shifts it
 
-def encrypt(plain_text, shift_amount):
-    cipher_text = ""
-    for letter in plain_text:
-        position = alphabet.index(letter)
-        new_position = position + shift_amount
-        if (new_position > 25):
-            new_position = new_position - 26
-        new_letter = alphabet[new_position]
-        cipher_text += new_letter
+def ceaser(message, shift_amount, cipher_direction):
+    ceaser_text = ""
+    if cipher_direction == "decode":
+        shift_amount *= -1
+    for char in message:
+        if char in alphabet:
+            position = alphabet.index(char)
+            new_position = position + shift_amount
+            if (new_position > 25):
+                new_position = new_position - 26
+            new_letter = alphabet[new_position]
+            ceaser_text += new_letter
+        else:
+            ceaser_text += char
 
-    print(f"The encoded text is {cipher_text}")
+    print(f"The encoded text is {ceaser_text}")
 
-def decrypt(cipher_text, shift_amount):
-    plain_text = ""
-    for letter in cipher_text:
-        position = alphabet.index(letter)
-        new_position = position - shift_amount
-        if (new_position < 0):
-            new_position = new_position + 26
-        new_letter = alphabet[new_position]
-        plain_text += new_letter
-    print(f"The decoded text is {plain_text}")
+
+print(f"{art.logo}")
 
 while (True):
     direction = input("Type 'encode' to encrypt, type 'decode ' to decrypt:\n")
+    if (direction != "encode") and (direction != "decode"):
+        continue
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
-    if direction == "encode":
-        encrypt(text, shift_amount=shift)
-    elif direction == "decode":
-        decrypt(text, shift_amount=shift)
-    else:
-        print("please input a valid direction")
-    done = input("Enter 'quit' to stop or 'OK' to continue:\n")
-    if done == "quit":
-        break
-    elif done == "OK":
+    ceaser(plain_text=text, shift_amount=shift, cipher_direction=direction)
+    go_again = input("Type 'yes' if you want to go again. Otherwise type 'no'\n")
+    if go_again == "yes":
         continue
+    elif go_again == "no":
+        print("Goodbye")
+        break
+    else:
+        print("Wrong choice. Going again")
