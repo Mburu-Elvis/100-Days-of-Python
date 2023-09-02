@@ -1,0 +1,21 @@
+user chooses to start playing the game
+randomly select two cards for the user
+randomly select a card for the computer
+
+User wanna take another card
+    yes
+        randomly select another card for user
+            if sum user card > 21
+                lose
+            else
+                select another card for computer
+                if sum user cards > sum computer && sum computer > 16
+                    win
+                else computer take another card after asking if user wanna take another card
+                    if sum comp cards < 21 and sum comp cards < sum user
+                        user
+                    elif sum comp cards > 21
+                        win
+                    else
+                        lose
+        
