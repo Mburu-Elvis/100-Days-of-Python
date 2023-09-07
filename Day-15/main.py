@@ -50,7 +50,7 @@ def make_coffee(machine, coffee_type):
     return machine
 
 while (True):
-    coffee_type = input("What wold you like> (espresso/latte/cappuccino): ").lower()
+    coffee_type = input("What would you like> (espresso/latte/cappuccino): ").lower()
 
     valid = check_input(coffee_type=coffee_type)
     if valid == True:
