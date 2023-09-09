@@ -3,8 +3,6 @@ import coffee
 machine = coffee.resources
 menu = coffee.MENU
 
-# print(menu['espresso']['ingredients']['water'])
-
 def check_input(coffee_type):
 
     if coffee_type in menu or coffee_type == 'report':
@@ -50,7 +48,7 @@ def make_coffee(machine, coffee_type):
     return machine
 
 while (True):
-    coffee_type = input("What would you like> (espresso/latte/cappuccino): ").lower()
+    coffee_type = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
     valid = check_input(coffee_type=coffee_type)
     if valid == True:
