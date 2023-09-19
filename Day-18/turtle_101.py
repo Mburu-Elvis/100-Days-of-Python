@@ -13,5 +13,4 @@ timmy.right(90)
 timmy.forward(50)
 
 screen = Screen()
-screen.
 screen.exitonclick()
